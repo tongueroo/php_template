@@ -7,9 +7,11 @@
 	<title>PhpTemplate</title>
 </head>
 <body>
+	<?php include("layouts/header.php"); ?>
 
 	<div>test page</div>
 	<div>go to http://php-template.local/index.php see this page</div>
 
+	<?php include("layouts/footer.php"); ?>
 </body>
 </html>
