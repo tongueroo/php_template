@@ -1,3 +1,5 @@
+<?php check_page($router) ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -11,6 +13,8 @@
 
 	<div>test page</div>
 	<div>go to http://php-template.local/index.php see this page</div>
+	
+	<?php include_page($router) ?>
 
 	<?php include("layouts/footer.php"); ?>
 </body>
