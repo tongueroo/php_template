@@ -13,6 +13,7 @@ $router->route();
 // echo "layout: ".$router->layout()."<br />";
 // echo "page: ".$router->page()."<br />";
 
+check_page($router);
 include("layouts/".$router->layout.".php");
 
 ?>

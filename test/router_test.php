@@ -24,43 +24,43 @@ class RouterTest extends PHPUnit_Framework_TestCase
   {
     $router = new Router('/about/me','/index.php',dirname(__FILE__).'/test_app_default');
     $router->route();
-    $this->assertEquals('default', $router->layout());
-    $this->assertEquals('me', $router->page());
+    $this->assertEquals('default', $router->layout);
+    $this->assertEquals('me', $router->page);
   }
   public function test_default_layout_index_page()
   {
    $router = new Router('/','/index.php',dirname(__FILE__).'/test_app_default');
    $router->route();
-   $this->assertEquals('default', $router->layout());
-   $this->assertEquals('index', $router->page());
+   $this->assertEquals('default', $router->layout);
+   $this->assertEquals('index', $router->page);
   }
   public function test_default_layout_default_page()
   {
    $router = new Router('/default','/index.php',dirname(__FILE__).'/test_app_default');
    $router->route();
-   $this->assertEquals('default', $router->layout());
-   $this->assertEquals('default', $router->page());
+   $this->assertEquals('default', $router->layout);
+   $this->assertEquals('default', $router->page);
   }
   public function test_about_layout_me_page()
   {
    $router = new Router('/about/me','/index.php',dirname(__FILE__).'/test_app_about');
    $router->route();
-   $this->assertEquals('about', $router->layout());
-   $this->assertEquals('me', $router->page());
+   $this->assertEquals('about', $router->layout);
+   $this->assertEquals('me', $router->page);
   }
   public function test_default_layout_about_page()
   {
    $router = new Router('/about','/index.php',dirname(__FILE__).'/test_app_about');
    $router->route();
-   $this->assertEquals('default', $router->layout());
-   $this->assertEquals('about', $router->page());
+   $this->assertEquals('default', $router->layout);
+   $this->assertEquals('about', $router->page);
   }
   public function test_about_layout_yellow_page_animals()
   {
    $router = new Router('/animals/dogs/brian','/index.php',dirname(__FILE__).'/test_app_default');
    $router->route();
-   $this->assertEquals('default', $router->layout());
-   $this->assertEquals('dogs', $router->page());
+   $this->assertEquals('default', $router->layout);
+   $this->assertEquals('dogs', $router->page);
   }
 }
 

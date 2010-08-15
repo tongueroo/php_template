@@ -1,1 +1,1 @@
-me test
+This file is in default/me.php
