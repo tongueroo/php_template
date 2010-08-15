@@ -1,7 +1,7 @@
 <?php
 // helper methods to be used in the views
 
-function check_page($router)
+function check_not_found($router)
 {
   GLOBAL $environment;
   if ($environment == 'production') {
@@ -13,13 +13,13 @@ function check_page($router)
   }
 }
 
-function include_page($router)
+function render_page($router)
 {
   $path = $router->layout.'/'.$router->page.'.php';
   if (file_exists($path))
     include($path);
   else
-    echo "WARNING: $path file could not be found";
+    echo '<span style="background-color:red">WARNING: $path file could not be found</span>';
 }
 	
 

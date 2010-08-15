@@ -13,7 +13,7 @@ $router->route();
 // echo "layout: ".$router->layout()."<br />";
 // echo "page: ".$router->page()."<br />";
 
-check_page($router);
+check_not_found($router); // in production mode this will throw a proper 404
 include("layouts/".$router->layout.".php");
 
 ?>
