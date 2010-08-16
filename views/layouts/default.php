@@ -10,6 +10,6 @@
   <?php partial("header"); ?>
 	<div>This is the default layout.  This file is in views/layouts/default.php</div>
 	<?php page($router) ?>
-  <?php partial("header"); ?>
+  <?php partial("footer"); ?>
 </body>
 </html>

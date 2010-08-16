@@ -23,10 +23,21 @@ class Router
     $script_name = explode('/', $this->script_name);
 		// removes the unwanted blank item at the beginning and index.php if it is in the request_uri
 		for($i= 0;$i < sizeof($script_name);$i++)
-    	if ($request_uri[$i] == $script_name[$i] || empty($request_uri[$i]))
+    	if ($request_uri[$i] == "index.php" || empty($request_uri[$i]))
       	unset($request_uri[$i]);
     $args = array_values($request_uri);
-
+    
+	  // possible subdir if code uploaded to a subdirectory http://www.site.com/subdir/
+	  // not the root for the http://www.site.com/
+	  // remove the subdir from the Array and run regular logic
+    $subdir = $args[0];
+    $lib_path = dirname(__FILE__);
+    if (strpos($lib_path, $subdir)) {
+      $subdir_found = true;
+      unset($args[0]);
+    }
+    $args = array_values($args);  // remove subdir
+    
 		$c = count($args);
     // echo "request_uri : $this->request_uri \n";
     // echo "c : $c \n";
@@ -40,17 +51,17 @@ class Router
 			$this->layout = 'default';
 			$this->page = $args[0];
 		} else {
-			$this->layout = $args[0];
+		  $this->layout = $args[0];
 			$this->page = $args[1];
-      $path = $this->root."/views/layouts/".$this->layout.".php";
+		  $path = $this->root."/views/layouts/".$this->layout.".php";
+
       if (file_exists($path)) {
         # if named layout exists use it
       } else {
         $this->layout = 'default';  # else fallback to the default layout
       }
-      $this->page = $args[1];
-		}
-	}
+    }
+  }
 }
 
 ?>

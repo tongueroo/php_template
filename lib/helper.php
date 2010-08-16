@@ -16,6 +16,8 @@ function check_not_found($router)
 function page($router)
 {
   $path = 'views/'.$router->layout.'/'.$router->page.'.php';
+  // $full_path = $router->root.'/'.$path;
+  // echo "full_path $full_path";
   if (file_exists($path))
     include($path);
   else
