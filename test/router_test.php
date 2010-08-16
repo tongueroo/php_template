@@ -64,6 +64,28 @@ class RouterTest extends PHPUnit_Framework_TestCase
 	 $this->assertEquals('default', $router->layout);
 	 $this->assertEquals('dogs', $router->page);
 	}
+  // no colors layout
+	public function test_no_colors_layout()
+	{
+	 $router = new Router('/colors','/index.php',dirname(__FILE__).'/test_app_about');
+	 $router->route();
+	 $this->assertEquals('default', $router->layout);
+	 $this->assertEquals('colors', $router->page);
+	}
+	public function test_no_colors_layout_index_page()
+	{
+	 $router = new Router('/colors/index','/index.php',dirname(__FILE__).'/test_app_about');
+	 $router->route();
+	 $this->assertEquals('default', $router->layout);
+	 $this->assertEquals('colors', $router->page);
+	}
+	public function test_no_colors_layout_blue_page()
+	{
+	 $router = new Router('/colors/blue','/index.php',dirname(__FILE__).'/test_app_about');
+	 $router->route();
+	 $this->assertEquals('default', $router->layout);
+	 $this->assertEquals('blue', $router->page);
+	}
 	// subdir default layout
 	public function test_subdir_default_layout_contact_page()
 	{
