@@ -43,6 +43,20 @@ What happens when the layouts don't exist?  The layout falls back to the layouts
 
 The reasoning behind these conventions is so that the designer does not have to update a configuration when he or she needs to add a new layout.  He can just add the layout and it will be picked up.
 
+Getting the Starter Code
+===========
+
+If you have git installed:
+
+<pre>
+$ git clone http://github.com/tongueroo/php_template.git
+$ mv php_tempate your_project_name
+</pre>
+
+If you do not have git installed:
+
+Go to http://github.com/tongueroo/php_template and click on the "Download Source" link.
+
 Misc
 ===========
 For programmers familiar with MVC: 
