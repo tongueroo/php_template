@@ -37,6 +37,9 @@ class Router
       unset($args[0]);
     }
     $args = array_values($args);  // remove subdir
+    // echo "args :";
+    // print_r($args);
+    // echo "subdir_found : $subdir_found";
     
 		$c = count($args);
     // echo "request_uri : $this->request_uri \n";
@@ -53,11 +56,17 @@ class Router
 		} else {
 		  $this->layout = $args[0];
 			$this->page = $args[1];
-		  $path = $this->root."/views/layouts/".$this->layout.".php";
+			if ($subdir_found)
+		    $path = $this->root."/$subdir/views/layouts/".$this->layout.".php";
+	    else
+		    $path = $this->root."/views/layouts/".$this->layout.".php";
+      // echo "%%% path $path<br />\n";
 
       if (file_exists($path)) {
         # if named layout exists use it
+        // echo "keeping ".$this->layout. " layout<br />\n";
       } else {
+        // echo "reseting to default layout <br />\n";
         $this->layout = 'default';  # else fallback to the default layout
       }
     }

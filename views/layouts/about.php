@@ -9,7 +9,7 @@
 <body>
   <?php partial("header"); ?>
 	<div>This is the about layout.  This file is in views/layouts/about.php</div>
-	<?php page($router) ?>
+	<strong><?php page($router) ?></strong>
   <?php partial("footer"); ?>
 </body>
 </html>

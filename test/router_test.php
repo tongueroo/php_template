@@ -62,20 +62,34 @@ class RouterTest extends PHPUnit_Framework_TestCase
    $this->assertEquals('default', $router->layout);
    $this->assertEquals('dogs', $router->page);
   }
-
+  
   public function test_subdir_default_layout_contact_page()
   {
-   $router = new Router('/app1/contact','/index.php',dirname(__FILE__).'/test_app_default');
+   $router = new Router('/subdir/contact','/index.php',dirname(__FILE__).'/test_app_subdir_default');
    $router->route();
    $this->assertEquals('default', $router->layout);
    $this->assertEquals('contact', $router->page);
   }
-  public function test_subdir_about_layout_index_page()
+  public function test_subdir_about_layout_me_page_no_about_layout()
   {
-   $router = new Router('/app1/about/me','/index.php',dirname(__FILE__).'/test_app_about');
+   $router = new Router('/subdir/about/me','/index.php',dirname(__FILE__).'/test_app_subdir_default');
+   $router->route();
+   $this->assertEquals('default', $router->layout);
+   $this->assertEquals('me', $router->page);
+  }
+  public function test_subdir_about_layout_me_page_found_about_layout()
+  {
+   $router = new Router('/subdir/about/me','/index.php',dirname(__FILE__).'/test_app_subdir_about');
    $router->route();
    $this->assertEquals('about', $router->layout);
    $this->assertEquals('me', $router->page);
+  }
+  public function test_subdir_about_layout_index_page()
+  {
+   $router = new Router('/subdir/about','/index.php',dirname(__FILE__).'/test_app_subdir_default');
+   $router->route();
+   $this->assertEquals('default', $router->layout);
+   $this->assertEquals('about', $router->page);
   }
 }
 
