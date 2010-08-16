@@ -7,6 +7,7 @@ It provides a very basic router which handles the routing of urls to layouts and
 
 This project already includes some starter view files in the /views directory to help you get going as soon as possible.  The organization of the views structure is the key: 
 
+<pre>
 views
 |-- about
 |   |-- index.php
@@ -19,6 +20,7 @@ views
     |-- _header.php
     |-- about.php
     `-- default.php
+</pre>
 
 The layouts/default.php is the default layout and will be used most of the time, especially for simple site layouts.  A few examples will make urls to file mapping clear.
 
