@@ -1,0 +1,1 @@
+<div>footer This file is in views/layouts/_footer.php</div>

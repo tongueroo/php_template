@@ -42,7 +42,7 @@ class Router
 		} else {
 			$this->layout = $args[0];
 			$this->page = $args[1];
-      $path = $this->root."/layouts/".$this->layout.".php";
+      $path = $this->root."/views/layouts/".$this->layout.".php";
       if (file_exists($path)) {
         # if named layout exists use it
       } else {

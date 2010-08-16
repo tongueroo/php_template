@@ -5,7 +5,7 @@ function check_not_found($router)
 {
   GLOBAL $environment;
   if ($environment == 'production') {
-    $path = $router->layout.'/'.$router->page.'.php';
+    $path = 'views/'.$router->layout.'/'.$router->page.'.php';
     if (!file_exists($path)) {
       header("HTTP/1.0 404 Not Found");
       exit;
@@ -13,13 +13,18 @@ function check_not_found($router)
   }
 }
 
-function render_page($router)
+function page($router)
 {
-  $path = $router->layout.'/'.$router->page.'.php';
+  $path = 'views/'.$router->layout.'/'.$router->page.'.php';
   if (file_exists($path))
     include($path);
   else
-    echo '<span style="background-color:red">WARNING: $path file could not be found</span>';
+    echo '<span style="background-color:red">WARNING: '.$path.' file could not be found</span>';
+}
+
+function partial($name)
+{
+  include("views/layouts/_$name.php");
 }
 	
 

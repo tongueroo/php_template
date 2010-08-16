@@ -7,9 +7,9 @@
 	<title>PhpTemplate</title>
 </head>
 <body>
-	<?php include("layouts/_header.php"); ?>
-	<div>This is the about layout.  This file is in layouts/about.php</div>
-	<?php render_page($router) ?>
-	<?php include("layouts/_footer.php"); ?>
+  <?php partial("header"); ?>
+	<div>This is the default layout.  This file is in views/layouts/default.php</div>
+	<?php page($router) ?>
+  <?php partial("header"); ?>
 </body>
 </html>
