@@ -8,7 +8,7 @@
 </head>
 <body>
   <?php partial("header"); ?>
-	<div>This is the about layout.  This file is in views/layouts/about.php</div>
+	<div>This is the <strong>about</strong> layout.  This file is in views/layouts/about.php</div>
 	<strong><?php page($router) ?></strong>
   <?php partial("footer"); ?>
 </body>

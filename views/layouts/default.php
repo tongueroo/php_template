@@ -8,7 +8,7 @@
 </head>
 <body>
   <?php partial("header"); ?>
-	<div>This is the default layout.  This file is in views/layouts/default.php</div>
+	<div>This is the <strong>default</strong> layout.  This file is in views/layouts/default.php</div>
 	<strong><?php page($router) ?></strong>
   <?php partial("footer"); ?>
 </body>
