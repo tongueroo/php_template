@@ -51,15 +51,23 @@ class Router
 			$this->layout = 'default';
 			$this->page = 'index';
 		} elseif ($c == 1) {
-			$this->layout = 'default';
-			$this->page = $args[0];
+			// first assume layout exists
+			$this->layout = $args[0]; 
+			$this->page = empty($args[1]) ? 'index' : $args[1];
+			
+			// now check if it doesnt, fallback to default if it doesnt
+			$path = $this->layout_path($subdir_found, $subdir);
+			if (file_exists($path)) {
+				$this->layout = $args[0];
+				$this->page = empty($args[1]) ? 'index' : $args[1];
+			} else {
+				$this->layout = 'default';
+				$this->page = $args[0];
+			}
 		} else {
 		  $this->layout = $args[0];
 			$this->page = $args[1];
-			if ($subdir_found)
-		    $path = $this->root."/$subdir/views/layouts/".$this->layout.".php";
-	    else
-		    $path = $this->root."/views/layouts/".$this->layout.".php";
+			$path = $this->layout_path($subdir_found, $subdir);
       // echo "%%% path $path<br />\n";
 
       if (file_exists($path)) {
@@ -71,6 +79,14 @@ class Router
       }
     }
   }
+
+	private function layout_path($subdir_found, $subdir) {
+		if ($subdir_found)
+	    $path = $this->root."/$subdir/views/layouts/".$this->layout.".php";
+    else
+	    $path = $this->root."/views/layouts/".$this->layout.".php";
+		return $path;
+	}
 }
 
 ?>
